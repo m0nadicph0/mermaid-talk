@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Client
+    participant API
+    participant Database
+
+    Client->>API: Request Data
+    API->>Database: Query Data
+    Database-->>API: Return Data
+    API-->>Client: Return Data
+
+    alt Data Found
+        Client-->>Client: Process Data
+    else Data Not Found
+        Client-->>Client: Handle Error
+    end

@@ -1,0 +1,30 @@
+graph TD;
+
+    subgraph "Frontend Microservice" 
+        A[Frontend Service] --> B[Load Balancer]
+    end
+
+    subgraph "Backend Microservices"
+        B --> C[Authentication Service]
+        B --> D[Product Service]
+        B --> E[Cart Service]
+        B --> F[Order Service]
+        B --> G[Payment Service]
+    end
+
+    subgraph "Data Storage"
+        C --> H[Database]
+        D --> H
+        E --> H
+        F --> H
+        G --> H
+    end
+
+    H --> I[Caching Service]
+    H --> J[Search Service]
+
+    subgraph "External Services"
+        K[External Payment Gateway] --> G
+        L[External Inventory Service] --> D
+    end
+

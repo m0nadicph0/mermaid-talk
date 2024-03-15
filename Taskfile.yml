@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  start:
+    cmds:
+      - marp -w -p mermaid.md
+  build:
+    cmds:
+      - for: ["mmds/api.mmd", "mmds/basic.mmd", "mmds/business-process.mmd", "mmds/database.mmd", "mmds/decision-trees.mmd", "mmds/flow.mmd", "mmds/git.mmd", "mmds/journey.mmd", "mmds/product-roadmap.mmd", "mmds/sequence.mmd", "mmds/state.mmd", "mmds/system-architecture.mmd", "mmds/timeline.mmd"]
+        cmd: npx @mermaid-js/mermaid-cli -i {{ .ITEM }}
+  clean:
+    cmds:
+      - rm mmds/*.svg *.pdf *.pptx
+  pdf:
+    cmds:
+      - marp --pdf --allow-local-files mermaid.md
+  
+  pptx:
+    cmds:
+      - marp --pptx --allow-local-files mermaid.md
+
+

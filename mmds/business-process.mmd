@@ -1,0 +1,10 @@
+graph TD;
+    A[Start] --> B[Collect Customer Information];
+    B -->|Valid?| C[Process Payment];
+    C -->|Success| D[Send Confirmation Email];
+    D --> E[End];
+    C -->|Failure| F[Display Error Message];
+    F --> B;
+
+    B -->|Invalid| G[Request Correct Information];
+    G --> B;

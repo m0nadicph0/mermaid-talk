@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant CH as Cardholder
+    participant MR as Merchant
+    participant PG as Payment Gateway
+    participant CN as Card Network
+    participant TS as Tokenization Service
+
+    Note over CH, MR: Purchase request
+    
+    CH->>MR: Initiates purchase with EMV card
+    MR->>PG: Sends payment request
+    PG->>CH: Requests card details
+    CH->>PG: Provides card details
+    PG->>TS: Requests tokenization
+    TS->>TS: Tokenize card details
+    TS-->>PG: Returns token
+    PG-->>MR: Receives token
+    MR->>PG: Submits token for payment
+    PG->>CN: Processes payment with token
+    CN-->>PG: Payment response
+    PG-->>MR: Payment success/failure
+    MR-->>CH: Notifies purchase status

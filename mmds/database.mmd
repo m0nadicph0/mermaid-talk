@@ -1,0 +1,5 @@
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_ITEM : contains
+    PRODUCT }|--|{ ORDER_ITEM : "included in"
+    CATEGORY }|--|{ PRODUCT : "belongs to"

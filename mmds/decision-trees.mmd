@@ -1,0 +1,11 @@
+graph TD;
+    A[Start] -->|Velocity > Threshold?| B[Yes];
+    A -->|Velocity <= Threshold?| C[No];
+
+    B -->|Credit Limit Exceeded?| D[Yes];
+    B -->|Credit Limit Not Exceeded| E[No];
+
+    C -->|Transaction Approved| F[End];
+
+    D -->|Decline Transaction| F[End];
+    E -->|Approve Transaction| F[End];

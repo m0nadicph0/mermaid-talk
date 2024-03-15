@@ -1,0 +1,9 @@
+stateDiagram
+    [*] --> Solid
+    Solid --> Liquid : Melting
+    Liquid --> Solid : Freezing
+    Liquid --> Gas : Vaporization
+    Gas --> Liquid : Condensation
+    Solid --> Gas : Sublimation
+    Gas --> Solid : Deposition
+    Gas --> [*]

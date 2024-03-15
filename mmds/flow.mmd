@@ -1,0 +1,9 @@
+graph TD;
+    A[Start] --> B[Visit Online Store];
+    B --> C[Browse Products];
+    C --> D{Product Found?};
+    D -->|Yes| E[Add to Cart];
+    D -->|No| C;
+    E --> F{More Items?};
+    F -->|Yes| C;
+    F -->|No| G[Proceed to Checkout];
